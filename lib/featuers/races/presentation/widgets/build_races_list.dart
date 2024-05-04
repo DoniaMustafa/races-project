@@ -135,8 +135,7 @@ class _BuildRacesScreenState extends State<BuildRacesScreen> {
                     Expanded(
                       child: Column(
                         children: [
-                          buildDetailsItem(AppAssets.direction, '',
-                              isDic: true),
+                          buildDetailsItem(AppAssets.direction,'${model.distances!.replaceAll(',', 'k\, ')}K'),
                           BlocBuilder<FilterOperationCubit,
                               FilterOperationState>(
                             builder: (context, state) {
@@ -168,6 +167,7 @@ class _BuildRacesScreenState extends State<BuildRacesScreen> {
           SizedBox(
             width: 5,
           ),
+          // if (isDic!=true)
           Expanded(
             flex: 6,
             child: AutoSizeText(
@@ -178,13 +178,13 @@ class _BuildRacesScreenState extends State<BuildRacesScreen> {
               // maxLines: 1,
             ),
           ),
-          if (isDic!)
-            Row(
-              children: List.generate(
-                  AppHelper.distancesString.split('0.0').length,
-                  (index) =>
-                      Text(formattedDistances[index].split(',').join('K, '))),
-            )
+          // if (isDic!)
+          //   Row(
+          //     children: List.generate(
+          //         AppHelper.distancesString.split('0.0').length,
+          //         (index) =>
+          //             Text(formattedDistances[index].split(',').join('K,').split('0.0').join(' '))),
+          //   )
         ],
       );
 }
